@@ -71,3 +71,10 @@ header img {
   width: 350px;
   object-fit: cover;
 }
+
+main img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+}

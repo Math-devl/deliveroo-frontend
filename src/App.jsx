@@ -11,7 +11,7 @@ function App() {
 
   const fetchData = async () => {
     const response = await axios.get("http://localhost:3000/");
-    console.log(response.data);
+    //console.log(response.data);
     setData(response.data);
     setIsLoading(false);
   };
@@ -23,27 +23,37 @@ function App() {
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (
-    <div>
-      {" "}
+    <>
       <header>
         <h2>{data.restaurant.name}</h2>
         <p>{data.restaurant.description}</p>
         <img src={headerImage} alt="header-image" />
       </header>
       <main>
-        <div>
-          {/* 1er .map qui retourne le titre de la catégorie */}
-          <h2></h2>
-          {/* 2eme .map qui retourne chaque "meal" et ses infos en fonction de la catégorie */}
-          <div>
-            <h3></h3>
-            <p></p>
-            <p></p>
-            <img src="" alt="" />
-          </div>
-        </div>
+        {/* Parcourir chaque catégorie */}
+        {data.categories.map((category, index) => {
+          // console.log(elem);
+          return (
+            <div key={index}>
+              <h2>{category.name}</h2>
+              {category.meals.map((meal, id) => {
+                // console.log(meal);
+                return (
+                  <div key={id}>
+                    <h3>{meal.title}</h3>
+                    <p>{meal.description}</p>
+                    <p>{meal.price} €</p>
+                    {meal.picture && (
+                      <img src={meal.picture} alt={meal.title} />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </main>
-    </div>
+    </>
   );
 }
 
