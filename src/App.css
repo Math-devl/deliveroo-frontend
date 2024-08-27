@@ -1,42 +1,125 @@
-#root {
-  max-width: 1280px;
+/* GENERAL STYLE */
+
+.container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1,
+h2 {
+  font-weight: bold;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  font-size: 32px;
+  margin-bottom: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h2 {
+  font-size: 25px;
+  margin-bottom: 30px;
 }
 
-.card {
-  padding: 2em;
+h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-.read-the-docs {
-  color: #888;
+/* HEADER */
+
+header {
+  padding: 20px 0;
+}
+
+header > div {
+  display: flex;
+}
+
+header p {
+  color: grey;
+  font-size: 19px;
+  line-height: 29px;
+}
+header img {
+  height: 200px;
+  width: 350px;
+  object-fit: cover;
+  margin-left: 40px;
+  border-radius: 5px;
+}
+
+/* MAIN */
+main {
+  background-color: #f2f5f5;
+}
+
+main > div {
+  display: flex;
+  gap: 40px;
+  padding-top: 50px;
+}
+
+.column-left {
+  /* background-color: blue; */
+  flex: 1;
+}
+
+.column-right {
+  /* background-color: red; */
+  width: 350px;
+}
+
+.meals-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: aqua; */
+  justify-content: space-between;
+}
+
+article {
+  height: 160px;
+  width: 48%;
+  background-color: white;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+article img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+article > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  height: 34px;
+  /* background-color: aquamarine; */
+  overflow: hidden;
+  color: #808484;
+}
+
+.popular-price {
+  display: flex;
+}
+
+.price {
+  color: #808484;
+}
+
+img {
+  height: 100px;
+}
+
+h2 {
+  font-weight: bold;
 }
