@@ -67,6 +67,7 @@ main > div {
 .column-right {
   /* background-color: red; */
   width: 350px;
+  background-color: white;
 }
 
 .meals-container {
@@ -121,5 +122,25 @@ img {
 }
 
 h2 {
+  font-weight: bold;
+}
+
+.order,
+.subTotal,
+.total,
+.fees {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: #00cdbd;
+  border-radius: 5px;
+  color: white;
+  width: 94%;
+  margin: 10px;
+  padding: 16px;
+  border: none;
+  font-size: 16px;
   font-weight: bold;
 }

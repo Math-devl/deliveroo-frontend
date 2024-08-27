@@ -64,8 +64,6 @@ function App() {
                                   id: meal.id,
                                 },
                               ]);
-
-                              console.log(orders);
                             }}
                           >
                             <div>
@@ -91,27 +89,43 @@ function App() {
           </div>
           <div className="column-right">
             <button>Valider mon panier</button>
-            {orders.map(() => {
-              <>
-                <div>
-                  <p></p>
-                  <p></p>
+            {orders.map((order) => {
+              //console.log(order); renvoie l'objet sur lequel on clique
+              return (
+                <div key={order.id}>
+                  <div className="order">
+                    <p>{order.title}</p>
+                    <p>{order.price}</p>
+                  </div>
                 </div>
-                <div>
-                  <p>Sous total</p>
-                  <p></p>
-                </div>
-                <div>
-                  <p>Frais de livraison</p>
-                  <p></p>
-                </div>
-                <div>
-                  <p>Total</p>
-                  <p></p>
-                </div>
-              </>;
+              );
             })}
-            ;
+            <div className="subTotal">
+              <p>Sous total</p>
+              <p>
+                {orders.reduce((accumulator, order) => {
+                  //console.log(typeof order.price); string
+                  const subTotal = accumulator + Number(order.price);
+                  return subTotal;
+                }, 0)}
+                €
+              </p>
+            </div>
+            <div className="fees">
+              <p>Frais de livraison</p>
+              <p>2,5 €</p>
+            </div>
+            <div className="total">
+              <p>Total</p>
+              <p>
+                {orders.reduce((accumulator, order) => {
+                  //console.log(typeof order.price); string
+                  const subTotal = accumulator + Number(order.price) + 2.5;
+                  return subTotal;
+                }, 0)}
+                €
+              </p>
+            </div>
           </div>
         </div>
       </main>
