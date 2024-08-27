@@ -11,7 +11,7 @@ import headerImage from "./assets/images/header-image.jpg";
 function App() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [order, setOrder] = useState({});
+  const [orders, setOrders] = useState([]);
 
   const fetchData = async () => {
     const response = await axios.get("http://localhost:3000/");
@@ -55,7 +55,17 @@ function App() {
                           <article
                             key={id}
                             onClick={() => {
-                              console.log(meal); // afficche l'objet "meal" sur lequel on click
+                              // console.log(meal.title); // affiche le title du "meal" sur lequel on click
+                              setOrders([
+                                ...orders,
+                                {
+                                  title: meal.title,
+                                  price: meal.price,
+                                  id: meal.id,
+                                },
+                              ]);
+
+                              console.log(orders);
                             }}
                           >
                             <div>
@@ -81,26 +91,29 @@ function App() {
           </div>
           <div className="column-right">
             <button>Valider mon panier</button>
-            <div>
-              <p>Nom du plat</p>
-              <p>prix</p>
-            </div>
-            <div>
-              <p>Sous totla</p>
-              <p></p>
-            </div>
-            <div>
-              <p>Frais de livraison</p>
-              <p></p>
-            </div>
-            <div>
-              <p>Total</p>
-              <p></p>
-            </div>
+            {orders.map(() => {
+              <>
+                <div>
+                  <p></p>
+                  <p></p>
+                </div>
+                <div>
+                  <p>Sous total</p>
+                  <p></p>
+                </div>
+                <div>
+                  <p>Frais de livraison</p>
+                  <p></p>
+                </div>
+                <div>
+                  <p>Total</p>
+                  <p></p>
+                </div>
+              </>;
+            })}
+            ;
           </div>
         </div>
-        {/*       <MealCard data={data} /> */}
-        {/* Parcourir chaque catégorie */}
       </main>
     </>
   );
